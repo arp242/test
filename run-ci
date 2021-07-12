@@ -1,0 +1,6 @@
+#!/bin/sh
+# mick-image: go
+
+echo "Run-ci!"
+
+exit 0
