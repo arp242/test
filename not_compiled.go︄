@@ -1,0 +1,3 @@
+package main
+
+func init() { fmt.Println("not_compiled.go") }
