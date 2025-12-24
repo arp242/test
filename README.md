@@ -1,3 +1,4 @@
+
 Files with variation selectors and other "invisible" characters can appear as
 something they're not; there are a bunch of files in this repo:
 
