@@ -84,3 +84,5 @@ programs. Variation selectors are a Unicode feature and *shouldn't* display in
 normal text. However, filenames are not really "normal text", certainly not in
 the context of code, as this can easily be abused in nefarious ways. This is
 similar to using LTR tricky to hide code (e.g. https://github.com/nickboucher/trojan-source).
+
+
