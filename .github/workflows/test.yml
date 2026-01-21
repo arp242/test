@@ -1,15 +1,21 @@
 name: 'automerge'
-on:   'pull_request'
-permissions:
-  contents:      'write'
-  pull-requests: 'write'
+on:
+  check_suite:         {types: ['completed']}
+  pull_request:        {}
+  pull_request_review: {types: ['submitted']}
+  status:              {}
 
 jobs:
   automerge:
     runs-on: 'ubuntu-latest'
+    permissions:
+      contents:      'write'
+      pull-requests: 'write'
     steps:
-      - env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh pr review --approve      ${{github.event.pull_request.html_url}}
-          gh pr merge --auto --rebase ${{github.event.pull_request.html_url}}
+      - uses: 'pascalgn/automerge-action@v0.16.4'
+        env:
+          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          MERGE_LABELS:  ''
+          MERGE_METHOD: 'squash'
+          MERGE_REQUIRED_APPROVALS: 1
