@@ -1,5 +1,8 @@
 name: 'automerge'
-on:   'pull_request'
+on:
+  pull_request: {}
+  status:       {}
+  check_suite:  {types: ['completed']}
 
 jobs:
   automerge:
