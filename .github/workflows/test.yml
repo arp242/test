@@ -1,8 +1,9 @@
 name: 'automerge'
 on:
-  pull_request: {}
-  status:       {}
-  check_suite:  {types: ['completed']}
+  check_suite:         {types: ['completed']}
+  pull_request:        {}
+  pull_request_review: {types: ['submitted']}
+  status:              {}
 
 jobs:
   automerge:
@@ -13,6 +14,8 @@ jobs:
     steps:
       - uses: 'pascalgn/automerge-action@v0.16.4'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
           MERGE_LABELS: ''
           MERGE_METHOD: 'squash'
+          MERGE_REQUIRED_APPROVALS: 1
