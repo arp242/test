@@ -1,10 +1,15 @@
-name: 'test'
-on:
-  pull_request:
-  push:
+name: 'automerge'
+on:   'pull_request'
+permissions:
+  contents:      'write'
+  pull-requests: 'write'
 
 jobs:
-  test:
+  automerge:
     runs-on: 'ubuntu-latest'
     steps:
-      - run: 'true'
+      - env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr review --approve      ${{github.event.pull_request.html_url}}
+          gh pr merge --auto --rebase ${{github.event.pull_request.html_url}}
