@@ -16,6 +16,6 @@ jobs:
         env:
           #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
-          MERGE_LABELS: ''
+          MERGE_LABELS:  ''
           MERGE_METHOD: 'squash'
           MERGE_REQUIRED_APPROVALS: 1
